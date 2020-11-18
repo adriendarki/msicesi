@@ -29,7 +29,7 @@ cat index.html'''
     stage('Docker image') {
       steps {
         sh '''# Build Docker Image 
-docker build -t mysiteweb:latest .
+docker build -t mysiteweb:latest 
 
 # Del of old image
 docker rmi registry.me:5000/mysiteweb:latest
