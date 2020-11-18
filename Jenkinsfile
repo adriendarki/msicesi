@@ -33,11 +33,11 @@ cat index.html'''
 docker build -t mysiteweb:latest 
 
 # Del of old image
-docker rmi registry:5000/mysiteweb:latest
+docker rmi registry.me:5000/mysiteweb:latest
 
 # Upload to the local registry
-docker tag mysiteweb:latest registry:5000/mysiteweb:latest 
-docker push registry:5000/mysiteweb:latest
+docker tag mysiteweb:latest registry.me:5000/mysiteweb:latest 
+docker push registry.me:5000/mysiteweb:latest
 '''
       }
     }
@@ -45,7 +45,7 @@ docker push registry:5000/mysiteweb:latest
     stage('Launch web site') {
       steps {
         sh '''# Run docker website
-docker run --name mywebsite -d -p 80:80 registry:5000/mysiteweb:latest'''
+docker run --name mywebsite -d -p 80:80 registry.me:5000/mysiteweb:latest'''
       }
     }
 
