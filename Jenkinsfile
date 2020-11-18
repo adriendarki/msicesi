@@ -33,12 +33,13 @@ docker build -t mysiteweb:latest .
 
 
 '''
-        sh '''# Del of old image
-docker rmi registry.me:5000/mysiteweb:latest
-
-# del previous docker container
+        sh '''# del previous docker container
 docker stop mysiteweb
 docker container prune -f
+
+# Del of old image
+docker rmi registry.me:5000/mysiteweb:latest
+
 
 # Upload to the local registry
 docker tag mysiteweb:latest registry.me:5000/mysiteweb:latest 
