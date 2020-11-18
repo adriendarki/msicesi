@@ -34,7 +34,7 @@ docker build -t mysiteweb:latest .
 
 '''
         sh '''# del previous docker container
-docker stop mysiteweb
+docker stop mywebsite
 docker container prune -f
 
 # Del of old image
