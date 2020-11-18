@@ -31,13 +31,14 @@ cat index.html'''
         sh '''# Build Docker Image 
 docker build -t mysiteweb:latest .
 
-# Del of old image
+
+'''
+        sh '''# Del of old image
 docker rmi registry.me:5000/mysiteweb:latest
 
 # Upload to the local registry
 docker tag mysiteweb:latest registry.me:5000/mysiteweb:latest 
-docker push registry.me:5000/mysiteweb:latest
-'''
+docker push registry.me:5000/mysiteweb:latest'''
       }
     }
 
