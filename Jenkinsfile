@@ -31,8 +31,8 @@ cat index.html'''
         sh '''
 # Build Docker Image 
 docker build -t mysiteweb:latest .
-\'\'\'
-        sh \'\'\'# Del of old image
+
+# Del of old image
 docker rmi 192.168.182.128:5000/mysiteweb:latest
 
 # Upload to the local registry
