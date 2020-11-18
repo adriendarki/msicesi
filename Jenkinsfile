@@ -26,5 +26,28 @@ cat index.html'''
       }
     }
 
+    stage('Docker image') {
+      steps {
+        sh '''
+# Build Docker Image 
+docker build -t mysiteweb:latest .
+\'\'\'
+        sh \'\'\'# Del of old image
+docker rmi 192.168.182.128:5000/mysiteweb:latest
+
+# Upload to the local registry
+docker tag mysiteweb:latest 192.168.182.128:5000/mysiteweb:latest 
+docker push 192.168.182.128:5000/mysiteweb:latest
+'''
+      }
+    }
+
+    stage('Launch web site') {
+      steps {
+        sh '''# Run docker website
+docker run --name mywebsite -d -p 80:80 192.168.182.128:5000/mysiteweb:latest'''
+      }
+    }
+
   }
 }
